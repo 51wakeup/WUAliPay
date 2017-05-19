@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WUAlipay"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "A short description of WUAlipay."
 
   # This description is used to generate tags and improve search results.
@@ -24,10 +24,9 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-                   DESC
 
-  s.homepage     = "http://EXAMPLE/WUAlipay"
+
+  s.homepage     = "https://github.com/51wakeup/WUAliPay"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +37,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -79,7 +78,8 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/WUAlipay.git", :tag => "#{s.version}" }
+  s.platform     = :ios, '8.0'
+  s.source       = { :git => "https://github.com/51wakeup/WUAliPay.git", :tag => "v1.0.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,9 +89,12 @@ Pod::Spec.new do |s|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files = 'WUAliPay/SDK/*.{h,m}'
+  s.resources    = ['WUAliPay/SDK/*.{bundle}']
+  s.requires_arc = true
+  s.frameworks   = 'SystemConfiguration', 'QuartzCore','CoreText', 'UIKit', 'Foundation', 'CoreGraphics','CoreTelephony','CFNetwork','CoreMotion'
+  s.libraries = 'c++','z'
+  s.vendored_frameworks = 'WUAliPay/SDK/AlipaySDK.framework'
 
   # s.public_header_files = "Classes/**/*.h"
 
